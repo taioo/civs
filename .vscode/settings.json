@@ -1,6 +1,4 @@
 {
-    "python.pythonPath": "venv/bin/python",
-    "terminal.integrated.shellArgs.linux": [
-        "powershell -noexit -command \"& {cd $env:VSCODE_CWD; . .venv/Scripts/activate.ps1}\""
-    ]
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "venv/bin/python"
 }
