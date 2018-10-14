@@ -13,7 +13,7 @@ for x in range(d):
 print
 print"big and smal letters"
 for x in range(d):
-    if x%2 == 0:
+    if x % 2 == 0:
         print("d")
     else:
         print "D"

@@ -9,7 +9,7 @@ if (x == "f")or (x == "F"):
     if not(fahrenheit < -459.67):
         celsius = (fahrenheit - 32) / 1.8
         print "celsius: ", celsius
-        
+
     else:
         print "the absolute zero of fahrenheit: -459.67 F"
 
