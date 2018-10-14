@@ -1,6 +1,5 @@
-#!/bin/sh
-'''exec' "/Users/thaer/Library/Mobile Documents/com~apple~CloudDocs/HS Mannheim/CVIS/venv/bin/python2.7" "$0" "$@"
-' '''
+#!/Users/thaer/GitHub/civs/venv/bin/python
+
 # -*- coding: utf-8 -*-
 import re
 import sys
