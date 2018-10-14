@@ -2,7 +2,7 @@
 
 
 print("Aufgabe 1")
-d = input("Bitte geben Sie eine Zahl ein: ")
+d = input("enter a number: ")
 
 x = 0
 while x < d:
@@ -13,4 +13,4 @@ while x < d:
         print "D"
     x += 1
 
-print("ende")
+print("end")

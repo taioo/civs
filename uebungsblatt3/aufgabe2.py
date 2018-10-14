@@ -24,7 +24,7 @@ elif (x == "c")or (x == "C"):
     else:
         print "the absolute zero of celsius: -273.15 C"
 
-elif (x == "c")or (x == "C") or (x == "f")or (x == "F"):
-    print"err restart plese"
+elif (x == "c")or (x == "C") or (x == "f") or (x == "F"):
+    print"err restart please"
 
-print "ende"
+print "end"
