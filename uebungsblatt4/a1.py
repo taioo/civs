@@ -30,10 +30,15 @@ cv2.imwrite(":red.png", red)
 cv2.imwrite(":green.png", green)
 
 
+height, width, layers = img.shape
+zeroImgMatrix = np.zeros((height, width), dtype="uint8")
+
 b, g, r = cv2.split(img)
-merge = cv2.merge((b,g,r))
+b = cv2.merge([b, zeroImgMatrix, zeroImgMatrix])
+g = cv2.merge([zeroImgMatrix, g, zeroImgMatrix])
+r = cv2.merge([zeroImgMatrix, zeroImgMatrix, r])
 
 cv2.imwrite("sblue.png", b)
 cv2.imwrite("sred.png", r)
 cv2.imwrite("sgreen.png", g)
-cv2.imwrite("merge.png", merge)
+
