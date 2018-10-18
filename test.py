@@ -1,13 +1,13 @@
 #test programm
-import numpy
+import numpy as np
 import cv2
-print cv2.__version__
 
-print("test")
+#print cv2.__version__
 
-x=5
-y=7
+img = cv2.imread("uebungsblatt4/KITTI46_13.png")
 
-zahl = input("bitte gib eine zahl ein")
-ergebnis= x+y+zahl
-print(ergebnis)
+px = img[100,100]
+
+print px
+
+print img [100,100,0]
