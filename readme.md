@@ -29,4 +29,7 @@ pip install OpenCV_python
 
 
 more info
+
+https://opencv-python-tutroals.readthedocs.io/en/latest/index.html
+
 https://sourabhbajaj.com/mac-setup/Python/virtualenv.html
