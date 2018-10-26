@@ -17,16 +17,14 @@ install
 ```
 pip install Numpy
 ```
+
 ```
 pip install Matplotlib
 ```
+
 ```
 pip install OpenCV_python
 ```
-
-
-
-
 
 more info
 
