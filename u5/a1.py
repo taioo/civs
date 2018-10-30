@@ -72,14 +72,15 @@ print ("X2 = " + str(np.rint(points2D[0][1])))
 print ("X3 = " + str(np.rint(points2D[0][2])))
 print ("X4 = " + str(np.rint(points2D[0][3])))
 
+cv2.circle(img,(x1[0],x1[1]), 5, (0,255,0), -1)
+cv2.circle(img,(x2[0],x2[1]), 5, (0,255,0), -1)
+cv2.circle(img,(x3[0],x3[1]), 5, (0,255,0), -1)
+cv2.circle(img,(x4[0],x4[1]), 5, (0,255,0), -1)
+cv2.imwrite('end.png', img)
 
 img = points2D[0][0]
 img = points2D[0][2]
 img = points2D[0][3]
 #img = points2D[0][4]
 
-cv2.circle(img,(x1[0],x1[1]), 5, (0,255,0), -1)
-cv2.circle(img,(x2[0],x2[1]), 5, (0,255,0), -1)
-cv2.circle(img,(x3[0],x3[1]), 5, (0,255,0), -1)
-cv2.circle(img,(x4[0],x4[1]), 5, (0,255,0), -1)
-cv2.imwrite('end.png', img)
+
