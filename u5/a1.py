@@ -2,7 +2,7 @@ import cv2
 import numpy as np	
 
 #Aufloesung 640x480
-img = np.zeros([480,640])
+img = np.zeros([640,480])
 img[:] = 255
 
 
@@ -82,5 +82,3 @@ img = points2D[0][0]
 img = points2D[0][2]
 img = points2D[0][3]
 #img = points2D[0][4]
-
-
