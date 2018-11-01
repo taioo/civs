@@ -15,12 +15,14 @@ points3D = np.array([x1,x2,x3,x4])
 x_img = cv2.imread("x.png")
 
 
-# Kalibrierung
+#brennweite
 f = 460
+
+#camara zentrum
 cx = 320
 cy = 240
 
-# K
+# Kalibrierung
 K = np.zeros((3,3))
 K[0,0] = f
 K[1,1] = f
@@ -47,7 +49,7 @@ x2 = np.vstack ((x2, np.array([[1.]])))
 x3 = np.vstack ((x3, np.array([[1.]])))
 x4 = np.vstack ((x4, np.array([[1.]])))
 
-# x = PX       3D -> 2D
+# X = x       3D -> 2D
 x1 = np.dot(P,x1)
 x2 = np.dot(P,x2)
 x3 = np.dot(P,x3)
@@ -81,4 +83,4 @@ cv2.imwrite('end.png', img)
 img = points2D[0][0]
 img = points2D[0][2]
 img = points2D[0][3]
-#img = points2D[0][4]
+img = points2D[0][4]
