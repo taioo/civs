@@ -5,7 +5,7 @@ import numpy as np
 
 images = glob.glob("bild/*.jpg")
 
-# generate object points
+# 3D bject points
 objectPoints = np.zeros((9 * 6, 3), np.float32)
 objectPoints[:, :2] = np.mgrid[0:9, 0:6].T.reshape(-1, 2)
 
@@ -13,6 +13,7 @@ def project_chessboard_points(fx, cx):
     
     print fx
     print cx
+    
     for i in range(len(images)):
         
         image = cv2.imread(images[i])
@@ -24,15 +25,14 @@ def project_chessboard_points(fx, cx):
         cv2.drawChessboardCorners(image, (9, 6), corners, res)
 
         # Display chessboard corners
-        cv2.imshow("Chessboard Corner: " + str(i), image)
+        cv2.imshow("Chessboard Corner " + str(i), image)
         cv2.waitKey(0)
 
         # get image dimension
         image_x = image.shape[0]
         image_y = image.shape[1]
 
-        #Calibrate use default fx and cx
-
+        #Calibrate
         res, K, distC, R, t = cv2.calibrateCamera([objectPoints], [corners], (image_x, image_y), None, None)
 
         # if value not none
@@ -41,7 +41,7 @@ def project_chessboard_points(fx, cx):
         if cx:
             K[0][2] = cx
 
-        # Get points
+        # Get 2D points
         imgPoints = cv2.projectPoints(objectPoints, np.asanyarray(R), np.asanyarray(t), K, None)[0]
 
         # new image to see the diffrent 
@@ -50,10 +50,8 @@ def project_chessboard_points(fx, cx):
 
         #set the points on image
         for j in range(len(imgPoints)):
-            # Retrieve point's x & y coordinates
-            x = np.rint(imgPoints[j][0][0]).astype(int)
-            y = np.rint(imgPoints[j][0][1]).astype(int)
-            #print circle on the image
+            x = imgPoints[j][0][0]
+            y = imgPoints[j][0][1]
             cv2.circle(image, (x, y), 3, (12, 86, 237), -1)
 
 
