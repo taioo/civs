@@ -16,11 +16,10 @@ def project_chessboard_points(fx, cx):
     for i in range(len(images)):
         
         image = cv2.imread(images[i])
-
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
         res, corners = cv2.findChessboardCorners(image, (9, 6))
-
+        
         # Draw the chessboard corners
         cv2.drawChessboardCorners(image, (9, 6), corners, res)
 
@@ -45,14 +44,11 @@ def project_chessboard_points(fx, cx):
         # Get points
         imgPoints = cv2.projectPoints(objectPoints, np.asanyarray(R), np.asanyarray(t), K, None)[0]
 
-        #print num of the points
-        print str(len(imgPoints))
-
         # new image to see the diffrent 
         image = cv2.imread(images[i])
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-        #print the points
+        #set the points on image
         for j in range(len(imgPoints)):
             # Retrieve point's x & y coordinates
             x = np.rint(imgPoints[j][0][0]).astype(int)
