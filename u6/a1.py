@@ -5,15 +5,16 @@ import numpy as np
 
 images = glob.glob("bild/*.jpg")
 
-# 3D bject points
+# Object points
 objectPoints = np.zeros((9 * 6, 3), np.float32)
 objectPoints[:, :2] = np.mgrid[0:9, 0:6].T.reshape(-1, 2)
+
 
 def project_chessboard_points(fx, cx):
     
     print fx
     print cx
-    
+
     for i in range(len(images)):
         
         image = cv2.imread(images[i])
@@ -21,7 +22,7 @@ def project_chessboard_points(fx, cx):
 
         res, corners = cv2.findChessboardCorners(image, (9, 6))
         
-        # Draw the chessboard corners
+        #chessboard corners
         cv2.drawChessboardCorners(image, (9, 6), corners, res)
 
         # Display chessboard corners
@@ -34,7 +35,10 @@ def project_chessboard_points(fx, cx):
 
         #Calibrate
         res, K, distC, R, t = cv2.calibrateCamera([objectPoints], [corners], (image_x, image_y), None, None)
+        print K
 
+        print K
+        
         # if value not none
         if fx:
             K[0][0] = fx
