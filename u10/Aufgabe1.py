@@ -107,14 +107,19 @@ def dense_stereo_matching(img_pathes, fx, fy, cx, cy, baseline):
     write_plyC("pointclouds/pointscloud_transformed2.ply", pointcloud2)
     write_plyC("pointclouds/pointscloud_transformed3.ply", pointcloud3)
     write_plyC("pointclouds/pointscloud_transformed4.ply", pointcloud4)
+
     img = project_pointcloud(pointcloud0, img1, fx, fy, cx, cy)
     cv2.imwrite("reprojection/img_pointcloud0.png", img)
+
     img = project_pointcloud(pointcloud1,img1, fx, fy, cx, cy)
     cv2.imwrite("reprojection/img_pointcloud1.png", img)
+
     img = project_pointcloud(pointcloud2, img1, fx, fy, cx, cy)
     cv2.imwrite("reprojection/img_pointcloud2.png", img)
+
     img = project_pointcloud(pointcloud3, img1, fx, fy, cx, cy)
     cv2.imwrite("reprojection/img_pointcloud3.png", img)
+    
     img = project_pointcloud(pointcloud4, img1, fx, fy, cx, cy)
     cv2.imwrite("reprojection/img_pointcloud4.png", img)
 

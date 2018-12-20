@@ -52,14 +52,14 @@ def get_pointcloud(img1, depth):
                 Z = depth[x, y]
                 u = x - cx
                 v = y - cy
-                X = (u * Z) / fx
-                Y = (v * Z) / fx
+                Y = (u * Z) / fx
+                X = (v * Z) / fx
                 vector.append([X, Y, Z, img1[x, y][2], img1[x, y][1], img1[x, y][0]])
     return vector
 
 
 def dense_stereo_matching(img_pathes, fx, fy, cx, cy, baseline):
-    print("Aufgabe1: Disparität")
+    #Aufgabe1 Disparität
     blocksizes = [4, 8, 12, 16] # Gibt Fenstergröße an (1-20)
     min_disp = 1 # Gibt minimale Disparität an (0-10)
     y = 5
@@ -87,11 +87,11 @@ def dense_stereo_matching(img_pathes, fx, fy, cx, cy, baseline):
         write_plyC("pointclouds/pointscloud" + str(blocksize) + ".ply", np.array(vector))
 
         # Aufgabe 3
-        stereo = cv2.StereoSGBM_create(minDisparity=min_disp, numDisparities=num_disp, blockSize=blocksize,
-                                       speckleWindowSize=100, speckleRange=1)
+        stereo = cv2.StereoSGBM_create(minDisparity=min_disp, numDisparities=num_disp, blockSize=blocksize,speckleWindowSize=100, speckleRange=1)
         disparity = stereo.compute(img1, img2).astype(np.float32) / 16.0
         depth = get_depth_img(fx, baseline, disparity)
 
+        #
         disparity = cv2.normalize(disparity, np.zeros(disparity.shape), 0, 255, cv2.NORM_MINMAX)
         img_out = cv2.applyColorMap(disparity.astype(np.uint8), cv2.COLORMAP_JET)
         cv2.imwrite("disparity_images/" + "disp_noise_reduced_b" + str(blocksize) + ".png", img_out)
@@ -102,7 +102,6 @@ def dense_stereo_matching(img_pathes, fx, fy, cx, cy, baseline):
 
         vector = get_pointcloud(img1, depth)
         write_plyC("pointclouds/pointscloud_noise_reduced" + str(blocksize) + ".ply", np.array(vector))
-
 
 dense_stereo_matching(image_pathes, fx, fy, cx, cy, baseline)
 
